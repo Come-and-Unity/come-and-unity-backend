@@ -1,16 +1,16 @@
 pipeline {
-    agent { docker { image 'python:3.7.7' } }
+    agent any
     stages {
         stage('Downloading requirements') {
             steps {
                 echo 'Installing requirements...'
-                sh 'pip install -r requirements.txt'
+//                 sh 'pip install -r requirements.txt'
             }
         }
         stage('Linting') {
             steps {
                 echo 'Linting...'
-                sh 'flake8'
+//                 sh 'flake8'
             }
         }
         stage('Test') {
