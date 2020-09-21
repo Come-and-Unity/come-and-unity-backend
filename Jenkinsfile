@@ -1,5 +1,5 @@
 pipeline {
-    agent { docker { image 'python:3.7.7' } }
+    agent any
     stages {
         stage('Downloading requirements') {
             steps {
