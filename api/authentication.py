@@ -49,7 +49,10 @@ class LoginResource(Resource):
         session.permanent = True
         access_token = create_access_token(identity=current_user.id, expires_delta=False)
         session[JWT_TOKEN] = access_token
-        return status.HTTP_200_OK
+        response_object = {
+            "access_token": access_token
+        }
+        return make_response(jsonify(response_object), status.HTTP_200_OK)
 
 
 API.add_resource(LogoutResource, '/logout')
